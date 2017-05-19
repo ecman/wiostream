@@ -1,0 +1,34 @@
+{
+  "name": "wiostream",
+  "version": "1.0.0-1",
+  "description": "Stream filepaths from a directory tree",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ecman/wiostream.git"
+  },
+  "keywords": [
+    "stream",
+    "readable",
+    "recursive",
+    "directory",
+    "filepaths",
+    "tree-walker",
+    "ecman"
+  ],
+  "author": "ecman <its.ec@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ecman/wiostream/issues"
+  },
+  "homepage": "https://github.com/ecman/wiostream#readme",
+  "dependencies": {
+    "walkitout": "^1.1.3"
+  },
+  "engines": {
+    "node": ">=0.10.48"
+  }
+}
