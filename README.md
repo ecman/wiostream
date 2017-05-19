@@ -2,6 +2,8 @@
 
 Stream filepaths from a directory tree
 
+This is BETA.
+
 # Usage
 
 ```js
