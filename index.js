@@ -27,8 +27,11 @@ WioStream.prototype = Object.create(
 
         function () {
           this.push(null);
-        }.bind(this)
+        }.bind(this),
 
+        null,
+
+        this._controller
       );
     }
   }
@@ -37,13 +40,14 @@ WioStream.prototype = Object.create(
 
 module.exports = wiostream;
 
-function wiostream(path, encoding){
-  return new WioStream(path, encoding || 'utf8');
+function wiostream(path, encoding, controller){
+  return new WioStream(path, encoding || 'utf8', controller);
 }
 
-function WioStream(path, encoding) {
+function WioStream(path, encoding, controller) {
   this._path = path;
   this._started = false;
+  this._controller = controller;
 
   Readable.call(this, {
     'encoding': encoding
