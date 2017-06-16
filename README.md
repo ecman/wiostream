@@ -14,14 +14,20 @@ var wiostream = require('wiostream');
  * @param encoding  {string} optional encoding
  * @param control   {function} optional descent controller
  */
-wiostream('.', 'utf8', descentControl)
-  .on('end', function () { console.log('no more filepaths') })
-  .on('data', function (path) { console.log('got filepath:', path) });
+wiostream('.', 'utf8', controlDescent)
+  .on('end', console.log.bind(null, 'no more filepaths'))
+  .on('data', console.log.bind(null, 'got filepath:'));
 
 // sample descent controller
-function descentControl(dirname, dirpath, descend, skip) {
+function controlDescent(
+    dirname, dirpath, descend, skip, depth) {
+
+  var excludeDir = /^\.|node_modules/.test(dirname);
+  var atMaxDepth = (depth === 2);
+
   // skip dot-directories and node_modules
-  /^\.|node_modules/.test(dirname) ? skip() : descend();
+  // and don't go more than 2 levels deep
+  excludeDir || atMaxDepth ? skip() : descend();
 }
 ```
 
