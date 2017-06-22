@@ -20,6 +20,7 @@ var wiostream = require('wiostream');
  *                      is called "cancel" will not emitted.
  */
 var stream = wiostream('.', 'utf8', controlDescent)
+  .on('error', console.log.bind(null, 'got error:'))
   .on('cancel', console.log.bind(null, 'walk cancelled'))
   .on('end', console.log.bind(null, 'walk complete'))
   .on('data', console.log.bind(null, 'got filepath:'));

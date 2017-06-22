@@ -20,8 +20,8 @@ WioStream.prototype = Object.create(
       this._cancelWalk = walkitout(this._walkStartPath,
 
         function (err, filename, done) {
-          if (err) return done();
-          this.push(filename);
+          if (err) this.emit('error', err);
+          else this.push(filename);
           done();
         }.bind(this),
 
