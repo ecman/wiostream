@@ -50,5 +50,5 @@ got filepath: index.js
 got filepath: README.md
 got filepath: .npmignore
 got filepath: .gitignore
-no more filepaths
+walk complete
 ```
